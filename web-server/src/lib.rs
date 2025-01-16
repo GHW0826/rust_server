@@ -1,4 +1,4 @@
 pub mod config;
-pub mod common;
+pub mod models;
 pub mod handlers;
 pub mod logger;

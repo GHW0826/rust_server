@@ -1,4 +1,17 @@
-use actix_web::{web, Error, HttpResponse};
+use actix_web::{web, HttpRequest, HttpResponse};
+
+use crate::models::err::{Error};
+
+pub async fn not_found2() -> Result<HttpResponse, Error> {
+//    Err(Error::NotFound.not_found())
+    Ok(HttpResponse::Ok().body("test"))
+
+}
+
+pub async fn not_found(_req: HttpRequest) -> HttpResponse {
+    // This API will send  bad request error as response inXMl format
+    Error::bad_request("Value is required".to_string()).error_response_json()
+}
 
 pub async fn get_default() -> Result<HttpResponse, Error> {
     println!("get_default");
